@@ -1,0 +1,32 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Membros</h1>
+  </div>
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+          <tr>
+            <th>#ID</th>
+            <th>Nome</th>
+            <th>email</th>
+            <th>Telefone</th>
+            <th>Celular</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="member in members">
+            <td>{{member.id}}</td>
+            <td>{{member.name}}</td>
+            <td>{{member.email}}</td>
+            <td>{{member.phone}}</td>
+            <td>{{member.cel}}</td>
+          </tr>
+        </tbody>
+      </div>
+    </div>
+  </div>
+</div>
+

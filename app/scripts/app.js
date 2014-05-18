@@ -4,7 +4,8 @@ angular.module('cropNodeApp', [
   'ngCookies',
   'ngResource',
   'ngSanitize',
-  'ngRoute'
+  'ngRoute',
+  'restangular'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -23,6 +24,11 @@ angular.module('cropNodeApp', [
       .when('/settings', {
         templateUrl: 'partials/settings',
         controller: 'SettingsCtrl',
+        authenticate: true
+      })
+      .when('/members', {
+        templateUrl: 'partials/members',
+        controller: 'MembersCtrl',
         authenticate: true
       })
       .otherwise({
@@ -46,7 +52,7 @@ angular.module('cropNodeApp', [
       };
     }]);
   })
-  .run(function ($rootScope, $location, Auth) {
+  .run(function ($rootScope, $location, Auth, Restangular) {
 
     // Redirect to login if route requires auth and you're not logged in
     $rootScope.$on('$routeChangeStart', function (event, next) {
@@ -55,4 +61,6 @@ angular.module('cropNodeApp', [
         $location.path('/login');
       }
     });
+
+    Restangular.setBaseUrl('/api');
   });
