@@ -1,9 +1,104 @@
 <div ng-include="'partials/navbar.html'"></div>
 
+
+<script type="text/ng-template" id="newMemberForm.html">
+  <div class="modal-header">
+    <h3 class="modal-title">I'm a modal!</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form" name="form" ng-submit="register(form)" novalidate>
+
+      <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                          'has-error': form.name.$invalid && submitted }">
+        <label>Name</label>
+
+        <input type="text" name="name" class="form-control" ng-model="member.name"
+               required/>
+        <p class="help-block" ng-show="form.name.$error.required && submitted">
+          A name is required
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form.email.$valid && submitted,
+                                          'has-error': form.email.$invalid && submitted }">
+        <label>Email</label>
+
+        <input type="email" name="email" class="form-control" ng-model="member.email"
+               required
+               mongoose-error/>
+        <p class="help-block" ng-show="form.email.$error.email && submitted">
+          Doesn't look like a valid email.
+        </p>
+        <p class="help-block" ng-show="form.email.$error.required && submitted">
+          What's your email address?
+        </p>
+        <p class="help-block" ng-show="form.email.$error.mongoose">
+          {{ errors.email }}
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form.cpf.$valid && submitted,
+                                          'has-error': formcpf.$invalid && submitted }">
+        <label>CPF</label>
+
+        <input type="text" name="cpf" class="form-control" ng-model="member.cpf"
+               required
+               mongoose-error/>
+
+        <p class="help-block" ng-show="form.cpf.$error.required && submitted">
+          What's your cpf?
+        </p>
+        <p class="help-block" ng-show="form.cpf.$error.mongoose">
+          {{ errors.cpf }}
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form.dap.$valid && submitted,
+                                          'has-error': form.dap.$invalid && submitted }">
+        <label>DAP</label>
+
+        <input type="text" name="dap" class="form-control" ng-model="member.dap"
+               required
+               mongoose-error/>
+
+        <p class="help-block" ng-show="form.dap.$error.required && submitted">
+          What's your DAP?
+        </p>
+        <p class="help-block" ng-show="form.dap.$error.mongoose">
+          {{ errors.dap }}
+        </p>
+      </div>
+
+
+      <div class="form-group" ng-class="{ 'has-success': form.rg.$valid && submitted,
+                                          'has-error': form.rg.$invalid && submitted }">
+        <label>RG</label>
+
+        <input type="text" name="rg" class="form-control" ng-model="member.rg"
+               required
+               mongoose-error/>
+
+        <p class="help-block" ng-show="form.rg.$error.required && submitted">
+          What's your RG?
+        </p>
+        <p class="help-block" ng-show="form.rg.$error.mongoose">
+          {{ errors.rg }}
+        </p>
+      </div>
+
+      <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a class="btn btn-lg btn-warning" ng-click="cancel()">Cancelar</a>
+  </div>
+</script>
+
 <div class="row">
   <div class="col-sm-12">
     <h1>Membros</h1>
   </div>
+  <div><a class="btn btn-primary" ng-click="open()">Adicionar Membro</a></div>
   <div class="col-sm-12">
     <div class="table-responsive">
       <table class="table table-hover">
@@ -14,18 +109,22 @@
             <th>email</th>
             <th>Telefone</th>
             <th>Celular</th>
+            <th></th>
+            <th></th>
           </tr>
         </thead>
         <tbody>
           <tr ng-repeat="member in members">
-            <td>{{member.id}}</td>
+            <td>{{member._id}}</td>
             <td>{{member.name}}</td>
             <td>{{member.email}}</td>
-            <td>{{member.phone}}</td>
-            <td>{{member.cel}}</td>
+            <td>{{member.contacts.phone}}</td>
+            <td>{{member.contacts.cel}}</td>
+            <td><a class="btn btn-info" ng-click="show(member)">Visualizar</a></td>
+            <td><a class="btn btn-danger" ng-click="remove(member)">Remover</a></td>
           </tr>
         </tbody>
-      </div>
+      </table>
     </div>
   </div>
 </div>

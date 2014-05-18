@@ -5,7 +5,8 @@ angular.module('cropNodeApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'restangular'
+  'restangular',
+  'ui.bootstrap'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -61,6 +62,12 @@ angular.module('cropNodeApp', [
         $location.path('/login');
       }
     });
-
+    /**
+     * Restangular Configuration
+     *
+     */
     Restangular.setBaseUrl('/api');
+    Restangular.setRestangularFields({
+      id:'_id'
+    });
   });
