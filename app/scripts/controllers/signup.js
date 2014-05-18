@@ -47,7 +47,6 @@ angular.module('cropNodeApp')
 
           // Update validity of form fields that match the mongoose errors
           angular.forEach(err.errors, function(error, field) {
-            debugger;
             form[field].$setValidity('mongoose', false);
             $scope.errors[field] = error.message;
           });
