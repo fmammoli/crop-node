@@ -57,7 +57,6 @@ angular.module('cropNodeApp')
        */
       createUser: function(user, callback) {
         var cb = callback || angular.noop;
-
         return User.save(user,
           function(user) {
             $rootScope.currentUser = user;

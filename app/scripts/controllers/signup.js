@@ -5,14 +5,37 @@ angular.module('cropNodeApp')
     $scope.user = {};
     $scope.errors = {};
 
+    $scope.kinds = ['associacao','cooperativa'];
+
     $scope.register = function(form) {
       $scope.submitted = true;
-  
       if(form.$valid) {
         Auth.createUser({
           name: $scope.user.name,
           email: $scope.user.email,
-          password: $scope.user.password
+          password: $scope.user.password,
+          formalGroup: {
+            name: $scope.user.formalGroup.name,
+            cnpj: $scope.user.formalGroup.cnpj,
+            dap: $scope.user.formalGroup.dap,
+            kind: $scope.user.formalGroup.kind,
+            address:{
+              city: 'a',
+              cep: 'a',
+              address: 'a',
+              state: 'a',
+              number: 'a'
+            },
+            contacts:{
+              phone: 'a',
+              cel: 'a'
+            },
+            bank:{
+              name: 'a',
+              agency: 'a',
+              cc: 'a'
+            }
+          }
         })
         .then( function() {
           // Account created, redirect to home
