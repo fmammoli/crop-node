@@ -5,7 +5,10 @@ angular.module('cropNodeApp')
     $scope.menu = [{
       'title': 'Home',
       'link': '/'
-    }, {
+    },{
+      'title':'Membros',
+      'link':'/members'
+    },{
       'title': 'Settings',
       'link': '/settings'
     }];
