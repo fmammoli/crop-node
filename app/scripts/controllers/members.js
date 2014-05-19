@@ -26,6 +26,17 @@ angular.module('cropNodeApp')
       });
     };
 
+    $scope.remove = function(member){
+      debugger;
+      member.remove()
+        .then(function(member){
+          $log.info('Member Removed.');
+        })
+        .catch(function(err){
+          console.log(err);
+        });
+      _.remove($scope.members, {_id:member._id});
+    }
   });
 
 angular.module('cropNodeApp')
