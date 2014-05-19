@@ -27,7 +27,6 @@ angular.module('cropNodeApp')
     };
 
     $scope.remove = function(member){
-      debugger;
       member.remove()
         .then(function(member){
           $log.info('Member Removed.');

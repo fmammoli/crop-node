@@ -9,6 +9,9 @@ angular.module('cropNodeApp')
       'title':'Membros',
       'link':'/members'
     },{
+      'title':'Editais',
+      'link':'/edicts'
+    },{
       'title': 'Settings',
       'link': '/settings'
     }];

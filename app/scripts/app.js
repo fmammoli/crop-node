@@ -6,7 +6,8 @@ angular.module('cropNodeApp', [
   'ngSanitize',
   'ngRoute',
   'restangular',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angularFileUpload'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider
@@ -30,6 +31,11 @@ angular.module('cropNodeApp', [
       .when('/members', {
         templateUrl: 'partials/members',
         controller: 'MembersCtrl',
+        authenticate: true
+      })
+      .when('/edicts', {
+        templateUrl: 'partials/edicts',
+        controller: 'EdictsCtrl',
         authenticate: true
       })
       .otherwise({

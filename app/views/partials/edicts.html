@@ -1,0 +1,77 @@
+<div ng-include="'partials/navbar.html'"></div>
+
+<script type="text/ng-template" id="newEdictForm.html">
+  <div class="modal-header">
+      <h3 class="modal-title">Adicione o Arquivo do Edital!</h3>
+  </div>
+  <div class="modal-body">
+    <form class="form" name="form" ng-submit="register(form)" novalidate>
+      <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                            'has-error': form.name.$invalid && submitted }">
+        <label>Name</label>
+
+        <input type="text" name="name" class="form-control" ng-model="member.name"
+               required/>
+        <p class="help-block" ng-show="form.name.$error.required && submitted">
+          A name is required
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form.file.$valid && submitted,
+                                            'has-error': form.file.$invalid && submitted }">
+        <label>Arquivo PDF do Edital</label>
+
+        <input type="file" name="name" class="form-control" ng-file-select="onFileSelect($files)"
+               required/>
+        <div ng-file-drop="onFileSelect($files)" ng-file-drag-over-class="optional-css-class"
+            ng-show="dropSupported"></div>
+        <div ng-file-drop-available="dropSupported=true"
+             ng-show="!dropSupported"></div>
+
+        <p class="help-block" ng-show="form.file.$error.required && submitted">
+          Um arquivo is required
+        </p>
+        <progressbar class="progress-striped active" value="progress" type="success">{{progress}}%</progressbar>
+      </div>
+
+      <button class="btn btn-lg btn-primary" type="submit" ng-disabled="!submittable">Sign up</button>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <a class="btn btn-lg btn-warning" ng-click="cancel()">Cancelar</a>
+  </div>
+</script>
+
+<div class="row">
+  <div class="col-sm-12">
+    <h1>Editais</h1>
+  </div>
+  <div><a class="btn btn-primary" ng-click="open()">Adicionar novo Edital</a></div>
+  <div class="col-sm-12">
+    <div class="table-responsive">
+      <table class="table table-hover">
+        <thead>
+        <tr>
+          <th>#ID</th>
+          <th>Nome</th>
+          <th>Comecou em</th>
+          <th>Termina em</th>
+          <th></th>
+          <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr >
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td>1</td>
+          <td><a class="btn btn-info" ng-click="show(member)">Visualizar</a></td>
+          <td><a class="btn btn-danger" ng-click="remove(member)">Remover</a></td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
