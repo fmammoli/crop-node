@@ -2,7 +2,7 @@
 
 <script type="text/ng-template" id="newEdictForm.html">
   <div class="modal-header">
-      <h3 class="modal-title">Adicione o Arquivo do Edital!</h3>
+      <h3 class="modal-title">Adicione novo Edital!</h3>
   </div>
   <div class="modal-body">
     <form class="form" name="form" ng-submit="register(form)" novalidate>
@@ -14,6 +14,71 @@
                required/>
         <p class="help-block" ng-show="form.name.$error.required && submitted">
           A name is required
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form.name.$valid && submitted,
+                                            'has-error': form.name.$invalid && submitted }">
+        <label>Cidade</label>
+
+        <input type="text" name="name" class="form-control" ng-model="member.name"
+               required/>
+        <p class="help-block" ng-show="form.name.$error.required && submitted">
+          A name is required
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form['formalGroup.kind'].$valid && submitted,
+                                          'has-error': form['formalGroup.kind'].$invalid && submitted }">
+        <label>Estado</label>
+
+        <select class="form-control" ng-model="user.formalGroup.kind" ng-options="kind for kind in kinds" required mongoose-error>
+          <option value="">MG</option>
+        </select>
+
+        <p class="help-block" ng-show="form['formalGroup.kind'].$error.required && submitted">
+          What's your DAP?
+        </p>
+        <p class="help-block" ng-show="form['formalGroup.kind'].$error.mongoose">
+          {{ errors['formalGroup.dap'] }}
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form['formalGroup.kind'].$valid && submitted,
+                                          'has-error': form['formalGroup.kind'].$invalid && submitted }">
+        <label>Início</label>
+
+        <p class="input-group">
+          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+
+        <p class="help-block" ng-show="form['formalGroup.kind'].$error.required && submitted">
+          What's your DAP?
+        </p>
+        <p class="help-block" ng-show="form['formalGroup.kind'].$error.mongoose">
+          {{ errors['formalGroup.dap'] }}
+        </p>
+      </div>
+
+      <div class="form-group" ng-class="{ 'has-success': form['formalGroup.kind'].$valid && submitted,
+                                          'has-error': form['formalGroup.kind'].$invalid && submitted }">
+        <label>Término</label>
+
+        <p class="input-group">
+          <input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+              <span class="input-group-btn">
+                <button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button>
+              </span>
+        </p>
+
+        <p class="help-block" ng-show="form['formalGroup.kind'].$error.required && submitted">
+          What's your DAP?
+        </p>
+        <p class="help-block" ng-show="form['formalGroup.kind'].$error.mongoose">
+          {{ errors['formalGroup.dap'] }}
         </p>
       </div>
 
@@ -34,7 +99,7 @@
         <progressbar class="progress-striped active" value="progress" type="success">{{progress}}%</progressbar>
       </div>
 
-      <button class="btn btn-lg btn-primary" type="submit" ng-disabled="!submittable">Sign up</button>
+      <button class="btn btn-lg btn-primary" type="submit" ng-disabled="!submittable">Registrar</button>
     </form>
   </div>
   <div class="modal-footer">
@@ -54,8 +119,11 @@
         <tr>
           <th>#ID</th>
           <th>Nome</th>
-          <th>Comecou em</th>
-          <th>Termina em</th>
+          <th>Cidade</th>
+          <th>Estado</th>
+          <th>Tipo</th>
+          <th>Início</th>
+          <th>Término</th>
           <th></th>
           <th></th>
         </tr>
@@ -63,10 +131,13 @@
         <tbody>
         <tr >
           <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td>1</td>
-          <td><a class="btn btn-info" ng-click="show(member)">Visualizar</a></td>
+          <td>PNAE 2013</td>
+          <td>Itajubá</td>
+          <td>MG</td>
+          <td>Municipal</td>
+          <td>10/01/2013</td>
+          <td>10/02/2013</td>
+          <td><a class="btn btn-info" ng-click="show(member)">Entrar</a></td>
           <td><a class="btn btn-danger" ng-click="remove(member)">Remover</a></td>
         </tr>
         </tbody>

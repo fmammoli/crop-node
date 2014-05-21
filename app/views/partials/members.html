@@ -3,7 +3,7 @@
 
 <script type="text/ng-template" id="newMemberForm.html">
   <div class="modal-header">
-    <h3 class="modal-title">I'm a modal!</h3>
+    <h3 class="modal-title">Cadastrar Novo Membro</h3>
   </div>
   <div class="modal-body">
     <form class="form" name="form" ng-submit="register(form)" novalidate>
@@ -86,7 +86,7 @@
         </p>
       </div>
 
-      <button class="btn btn-lg btn-primary" type="submit">Sign up</button>
+      <button class="btn btn-lg btn-primary" type="submit">Cadastrar</button>
     </form>
   </div>
   <div class="modal-footer">
@@ -104,7 +104,6 @@
       <table class="table table-hover">
         <thead>
           <tr>
-            <th>#ID</th>
             <th>Nome</th>
             <th>email</th>
             <th>Telefone</th>
@@ -115,7 +114,6 @@
         </thead>
         <tbody>
           <tr ng-repeat="member in members">
-            <td>{{member._id}}</td>
             <td>{{member.name}}</td>
             <td>{{member.email}}</td>
             <td>{{member.contacts.phone}}</td>

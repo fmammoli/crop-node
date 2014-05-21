@@ -59,8 +59,8 @@ angular.module('cropNodeApp')
             number: 'a'
           },
           contacts:{
-            phone: 'a',
-            cel: 'a'
+            phone: '3923-6892',
+            cel: '12 9178-8976'
           },
           bank:{
             name: 'a',

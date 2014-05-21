@@ -12,7 +12,7 @@ angular.module('cropNodeApp')
       'title':'Editais',
       'link':'/edicts'
     },{
-      'title': 'Settings',
+      'title': 'Opções',
       'link': '/settings'
     }];
     
