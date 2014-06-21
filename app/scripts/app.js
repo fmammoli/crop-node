@@ -38,6 +38,11 @@ angular.module('cropNodeApp', [
         controller: 'EdictsCtrl',
         authenticate: true
       })
+      .when('/edicts/:id', {
+        templateUrl: 'partials/edict',
+        controller: 'EdictCtrl',
+        authenticate: true
+      })
       .otherwise({
         redirectTo: '/'
       });

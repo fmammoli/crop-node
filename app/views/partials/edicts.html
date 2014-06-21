@@ -109,36 +109,44 @@
 
 <div class="row">
   <div class="col-sm-12">
-    <h1>Editais</h1>
+    <h1>Vendas</h1>
   </div>
-  <div><a class="btn btn-primary" ng-click="open()">Adicionar novo Edital</a></div>
+  <div><a class="btn btn-primary" ng-click="open()">Adicionar nova Venda</a></div>
   <div class="col-sm-12">
     <div class="table-responsive">
       <table class="table table-hover">
         <thead>
         <tr>
           <th>#ID</th>
-          <th>Nome</th>
-          <th>Cidade</th>
-          <th>Estado</th>
-          <th>Tipo</th>
-          <th>Início</th>
-          <th>Término</th>
-          <th></th>
+          <th>Produtor</th>
+          <th>Produto</th>
+          <th>Quantidade</th>
+          <th>Valor Total</th>
+          <th>Origem</th>
+          <th>Data</th>
           <th></th>
         </tr>
         </thead>
         <tbody>
         <tr >
           <td>1</td>
-          <td>PNAE 2013</td>
-          <td>Itajubá</td>
-          <td>MG</td>
-          <td>Municipal</td>
-          <td>10/01/2013</td>
-          <td>10/02/2013</td>
-          <td><a class="btn btn-info" ng-click="show(member)">Entrar</a></td>
-          <td><a class="btn btn-danger" ng-click="remove(member)">Remover</a></td>
+          <td>Felipe Mammoli</td>
+          <td>Batata</td>
+          <td>100,00 (KG)</td>
+          <td>275,00 (R$)</td>
+          <td><a>PNAE 2014 Itjubá</a></td>
+          <td>10/02/2014</td>
+          <td><a class="btn btn-info" ng-href="/edicts/1">Detalhes</a></td>
+        </tr>
+        <tr >
+          <td>2</td>
+          <td>Edinilson</td>
+          <td>Alface</td>
+          <td>100 (Un)</td>
+          <td>130,00 (R$)</td>
+          <td><a>PNAE 2014 Itjubá</a></td>
+          <td>10/02/2014</td>
+          <td><a class="btn btn-info" ng-href="/edicts/1">Detalhes</a></td>
         </tr>
         </tbody>
       </table>
